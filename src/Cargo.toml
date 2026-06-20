@@ -1,0 +1,43 @@
+[package]
+name = "j3pic"
+version = "0.1.0"
+edition = "2021"
+build = "build.rs"
+
+[dependencies]
+image = { version = "0.25.8", default-features = false, features = [
+    "bmp",
+    "gif",
+    "ico",
+    "jpeg",
+    "png",
+    "tga",
+    "tiff",
+    "webp",
+] }
+jpeg-decoder = { version = "0.3.2", default-features = false }
+oxipng = { version = "10.1.1", default-features = false }
+png = "0.18.1"
+
+[target.'cfg(target_os = "windows")'.dependencies]
+windows-sys = { version = "0.61.2", features = [
+    "Win32_Foundation",
+    "Win32_Graphics_Gdi",
+    "Win32_Storage_FileSystem",
+    "Win32_System_DataExchange",
+    "Win32_System_Diagnostics_Debug",
+    "Win32_System_LibraryLoader",
+    "Win32_System_Memory",
+    "Win32_UI_Controls",
+    "Win32_UI_Controls_Dialogs",
+    "Win32_UI_HiDpi",
+    "Win32_UI_Input_KeyboardAndMouse",
+    "Win32_UI_Shell",
+    "Win32_UI_WindowsAndMessaging",
+] }
+
+[target.'cfg(target_os = "linux")'.dependencies]
+gtk4 = { version = "0.11.3", features = ["v4_10"] }
+
+[build-dependencies]
+winresource = { version = "0.1.31", default-features = false }

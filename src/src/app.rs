@@ -1259,6 +1259,7 @@ impl ViewerApp {
             | Command::Animation(_)
             | Command::ContextualSpace
             | Command::ToggleFullscreen
+            | Command::OpenAbout
             | Command::OpenSettings
             | Command::ExitFullscreenOrQuit
             | Command::Quit => Ok(AppCommandOutcome::Unhandled),

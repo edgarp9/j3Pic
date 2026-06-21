@@ -2130,20 +2130,20 @@ pub fn serialize_app_config(config: &AppConfig) -> String {
 
     output.push_str(&format!(
         "ui_language={}\n",
-        config_ui_language_name(config.ui_language())
+        config_string_value(config_ui_language_name(config.ui_language()))
     ));
     output.push_str(&format!(
         "default_view_mode={}\n",
-        config_view_mode_name(config.default_view_mode())
+        config_string_value(config_view_mode_name(config.default_view_mode()))
     ));
     output.push_str(&format!(
         "scaling_quality={}\n",
-        config_scaling_quality_name(config.scaling_quality())
+        config_string_value(config_scaling_quality_name(config.scaling_quality()))
     ));
 
     if let Some(folder) = config.recent_folder() {
         output.push_str("recent_folder=");
-        output.push_str(&escape_config_value(&folder.to_string_lossy()));
+        output.push_str(&config_string_value(&folder.to_string_lossy()));
         output.push('\n');
     }
 
@@ -2240,14 +2240,16 @@ pub fn serialize_app_config(config: &AppConfig) -> String {
     let export = config.export_settings();
     output.push_str(&format!(
         "default_export_format_policy={}\n",
-        config_default_export_format_policy_name(export.default_export_format_policy())
+        config_string_value(config_default_export_format_policy_name(
+            export.default_export_format_policy()
+        ))
     ));
     output.push_str("export_filename_suffix=");
-    output.push_str(&escape_config_value(export.export_filename_suffix()));
+    output.push_str(&config_string_value(export.export_filename_suffix()));
     output.push('\n');
     output.push_str(&format!(
         "jpeg_alpha_background_rgb={}\n",
-        config_rgb_color_value(export.jpeg_alpha_background_rgb())
+        config_string_value(&config_rgb_color_value(export.jpeg_alpha_background_rgb()))
     ));
 
     let status_ui = config.status_ui_settings();
@@ -2263,19 +2265,23 @@ pub fn serialize_app_config(config: &AppConfig) -> String {
     let interaction = config.interaction_settings();
     output.push_str(&format!(
         "zoom_shortcut={}\n",
-        config_mouse_shortcut_name(interaction.zoom_shortcut())
+        config_string_value(config_mouse_shortcut_name(interaction.zoom_shortcut()))
     ));
     output.push_str(&format!(
         "image_navigation_shortcut={}\n",
-        config_mouse_shortcut_name(interaction.image_navigation_shortcut())
+        config_string_value(config_mouse_shortcut_name(
+            interaction.image_navigation_shortcut()
+        ))
     ));
     output.push_str(&format!(
         "image_pan_shortcut={}\n",
-        config_mouse_shortcut_name(interaction.image_pan_shortcut())
+        config_string_value(config_mouse_shortcut_name(interaction.image_pan_shortcut()))
     ));
     output.push_str(&format!(
         "window_move_shortcut={}\n",
-        config_mouse_shortcut_name(interaction.window_move_shortcut())
+        config_string_value(config_mouse_shortcut_name(
+            interaction.window_move_shortcut()
+        ))
     ));
     output
 }
@@ -2311,17 +2317,19 @@ pub fn parse_app_config(contents: &str) -> Result<AppConfig, AppConfigParseError
             "window.width" => parsed.window_width = value.parse::<i32>().ok(),
             "window.height" => parsed.window_height = value.parse::<i32>().ok(),
             "ui_language" => {
-                parsed.ui_language = config_ui_language_from_name(value);
+                let decoded = parse_config_string_value(value, line_number)?;
+                parsed.ui_language = config_ui_language_from_name(&decoded);
             }
             "default_view_mode" => {
-                parsed.default_view_mode = config_view_mode_from_name(value);
+                let decoded = parse_config_string_value(value, line_number)?;
+                parsed.default_view_mode = config_view_mode_from_name(&decoded);
             }
             "scaling_quality" => {
-                parsed.scaling_quality = config_scaling_quality_from_name(value);
+                let decoded = parse_config_string_value(value, line_number)?;
+                parsed.scaling_quality = config_scaling_quality_from_name(&decoded);
             }
             "recent_folder" => {
-                let decoded = unescape_config_value(value)
-                    .map_err(|()| AppConfigParseError::InvalidEscape { line: line_number })?;
+                let decoded = parse_config_string_value(value, line_number)?;
                 parsed.recent_folder = Some(PathBuf::from(decoded));
             }
             "export_default_quality" => {
@@ -2415,18 +2423,21 @@ pub fn parse_app_config(contents: &str) -> Result<AppConfig, AppConfigParseError
                     .max_navigation_attempts_per_command = parse_config_i128(value);
             }
             "default_export_format_policy" => {
+                let decoded = parse_config_string_value(value, line_number)?;
                 parsed.user_settings.export.default_export_format_policy =
-                    config_default_export_format_policy_from_name(value);
+                    config_default_export_format_policy_from_name(&decoded);
             }
             "export_filename_suffix" => {
                 parsed.user_settings.export.export_filename_suffix = Some(
-                    unescape_config_value(value)
-                        .unwrap_or_else(|()| DEFAULT_EXPORT_FILENAME_SUFFIX.to_owned()),
+                    parse_config_string_value(value, line_number)
+                        .unwrap_or_else(|_| DEFAULT_EXPORT_FILENAME_SUFFIX.to_owned()),
                 );
             }
             "jpeg_alpha_background_rgb" => {
+                let decoded = parse_config_string_value(value, line_number)
+                    .unwrap_or_else(|_| value.to_owned());
                 parsed.user_settings.export.jpeg_alpha_background_rgb =
-                    parse_config_rgb_color(value);
+                    parse_config_rgb_color(&decoded);
             }
             "show_status_bar" => {
                 parsed.user_settings.status_ui.show_status_bar = parse_config_bool(value);
@@ -2435,20 +2446,24 @@ pub fn parse_app_config(contents: &str) -> Result<AppConfig, AppConfigParseError
                 parsed.user_settings.status_ui.detailed_status_text = parse_config_bool(value);
             }
             "zoom_shortcut" => {
+                let decoded = parse_config_string_value(value, line_number)?;
                 parsed.user_settings.interaction.zoom_shortcut =
-                    config_mouse_shortcut_from_name(value);
+                    config_mouse_shortcut_from_name(&decoded);
             }
             "image_navigation_shortcut" => {
+                let decoded = parse_config_string_value(value, line_number)?;
                 parsed.user_settings.interaction.image_navigation_shortcut =
-                    config_mouse_shortcut_from_name(value);
+                    config_mouse_shortcut_from_name(&decoded);
             }
             "image_pan_shortcut" => {
+                let decoded = parse_config_string_value(value, line_number)?;
                 parsed.user_settings.interaction.image_pan_shortcut =
-                    config_mouse_shortcut_from_name(value);
+                    config_mouse_shortcut_from_name(&decoded);
             }
             "window_move_shortcut" => {
+                let decoded = parse_config_string_value(value, line_number)?;
                 parsed.user_settings.interaction.window_move_shortcut =
-                    config_mouse_shortcut_from_name(value);
+                    config_mouse_shortcut_from_name(&decoded);
             }
             _ => {}
         }
@@ -3069,17 +3084,45 @@ fn parse_config_rgb_component(value: &str) -> Option<u8> {
     u8::try_from(clamped).ok()
 }
 
-fn escape_config_value(value: &str) -> String {
-    let mut escaped = String::new();
+fn config_string_value(value: &str) -> String {
+    let mut escaped = String::with_capacity(value.len() + 2);
+    escaped.push('"');
     for character in value.chars() {
         match character {
             '\\' => escaped.push_str("\\\\"),
+            '"' => escaped.push_str("\\\""),
             '\n' => escaped.push_str("\\n"),
             '\r' => escaped.push_str("\\r"),
+            '\t' => escaped.push_str("\\t"),
+            character if character.is_control() => {
+                let code = character as u32;
+                if code <= 0xffff {
+                    escaped.push_str(&format!("\\u{code:04X}"));
+                } else {
+                    escaped.push_str(&format!("\\U{code:08X}"));
+                }
+            }
             _ => escaped.push(character),
         }
     }
+    escaped.push('"');
     escaped
+}
+
+fn parse_config_string_value(
+    value: &str,
+    line_number: usize,
+) -> Result<String, AppConfigParseError> {
+    let value = if let Some(quoted) = value.strip_prefix('"') {
+        quoted
+            .strip_suffix('"')
+            .ok_or(AppConfigParseError::InvalidEscape { line: line_number })?
+    } else {
+        value
+    };
+
+    unescape_config_value(value)
+        .map_err(|()| AppConfigParseError::InvalidEscape { line: line_number })
 }
 
 fn unescape_config_value(value: &str) -> Result<String, ()> {
@@ -3093,12 +3136,30 @@ fn unescape_config_value(value: &str) -> Result<String, ()> {
 
         match characters.next() {
             Some('\\') => unescaped.push('\\'),
+            Some('"') => unescaped.push('"'),
             Some('n') => unescaped.push('\n'),
             Some('r') => unescaped.push('\r'),
+            Some('t') => unescaped.push('\t'),
+            Some('u') => unescaped.push(unescape_config_unicode(&mut characters, 4)?),
+            Some('U') => unescaped.push(unescape_config_unicode(&mut characters, 8)?),
             Some(_) | None => return Err(()),
         }
     }
     Ok(unescaped)
+}
+
+fn unescape_config_unicode(
+    characters: &mut std::str::Chars<'_>,
+    digits: usize,
+) -> Result<char, ()> {
+    let mut value = 0;
+    for _ in 0..digits {
+        let digit = characters
+            .next()
+            .and_then(|character| character.to_digit(16));
+        value = value * 16 + digit.ok_or(())?;
+    }
+    char::from_u32(value).ok_or(())
 }
 
 #[derive(Debug, Clone, Copy, PartialEq, Eq, Hash)]
@@ -4410,6 +4471,7 @@ pub enum Command {
     RotateClockwise,
     RotateCounterClockwise,
     ToggleFullscreen,
+    OpenAbout,
     OpenSettings,
     ExitFullscreenOrQuit,
     Quit,
@@ -6044,6 +6106,10 @@ animation_autoplay=no
         let serialized = serialize_app_config(&config);
         let parsed = parse_app_config(&serialized).expect("serialized config parses");
 
+        assert!(serialized.contains("ui_language=\"english\"\n"));
+        assert!(serialized.contains("default_view_mode=\"actual_size\"\n"));
+        assert!(serialized.contains("scaling_quality=\"high_quality\"\n"));
+        assert!(serialized.contains(r#"recent_folder="C:\\Images\\A=B""#));
         assert_eq!(parsed, config);
     }
 

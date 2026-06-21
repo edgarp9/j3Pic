@@ -4,9 +4,9 @@
 
 ## 자동 확인
 
-다음 항목은 `target/debug/j3pic.exe`를 실제 실행한 뒤 PowerShell P/Invoke 하네스로
-확인했다. 앱은 임시 `APPDATA`/`LOCALAPPDATA`를 주입해 사용자 설정을 격리했고,
-하네스 종료 후 임시 설정 디렉터리를 삭제했다.
+다음 항목은 임시 디렉터리에 복사한 `j3pic.exe`를 실제 실행한 뒤 PowerShell
+P/Invoke 하네스로 확인했다. 앱은 복사한 실행파일 옆 `j3pic.toml`로 사용자 설정을
+격리했고, 하네스 종료 후 임시 실행파일 디렉터리를 삭제했다.
 
 - 기본 창 생성: class `j3pic.viewer.window`, title `j3Pic`.
 - `WM_CREATE`: 생성 직후 title 동기화와 `DragAcceptFiles` 경로까지 도달.
@@ -15,7 +15,7 @@
 - fullscreen enter: `WM_KEYDOWN/F11` 전송 후 `WS_OVERLAPPEDWINDOW` style 제거 확인.
 - fullscreen exit: `WM_KEYDOWN/Esc` 전송 후 windowed style 복원 확인.
 - 정상 종료: `WM_CLOSE` 후 프로세스가 5초 안에 종료.
-- 종료 시 `j3Pic/config.txt` 저장 확인.
+- 종료 시 실행파일 옆 `j3pic.toml` 저장 확인.
 
 확인된 스모크 값:
 
@@ -50,8 +50,8 @@ cargo test clipboard_payloads_can_be_registered_and_read_back_from_win32_clipboa
 
 재현 환경은 4개 모니터였고, 주요 재현 경로는 primary 144 DPI 모니터에서 아래쪽
 96 DPI 모니터로 창을 드래그하는 흐름이다. PowerShell P/Invoke 하네스가 실제
-`target/debug/j3pic.exe`를 임시 `APPDATA`/`LOCALAPPDATA`로 실행한 뒤 `SendInput`으로
-caption drag를 재현했다.
+임시 디렉터리에 복사한 `j3pic.exe`를 실행한 뒤 `SendInput`으로 caption drag를
+재현했다.
 
 수정 전 PMv2 DPI aware 상태에서 추적한 결과:
 

@@ -3,6 +3,9 @@ use std::path::{Path, PathBuf};
 use crate::domain::{export_path_with_format_extension, ExportFormat, UiLanguage};
 
 #[cfg(target_os = "windows")]
+pub(crate) mod about_dialog;
+
+#[cfg(target_os = "windows")]
 pub(crate) mod export_options_dialog;
 
 #[cfg(target_os = "windows")]

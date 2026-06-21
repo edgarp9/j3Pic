@@ -93,6 +93,15 @@
   lifecycle, settings flow, export flow, clipboard behavior, drag-and-drop file
   handling, animation timer behavior, and shutdown/config-save behavior through
   the shared `ViewerApp` domain/app contract.
+- License notices: The project license is GPL-3.0-or-later. Third-party dependency
+  and included resource notices are recorded in `THIRD_PARTY_NOTICES.txt` and
+  copied next to release binaries together with the project `LICENSE` file and
+  `about.txt` by `build_release.py`. The release script also creates source and
+  binary zip archives and verifies that each archive contains `LICENSE`,
+  `THIRD_PARTY_NOTICES.txt`, and `about.txt`. The About dialog shows an automatic
+  `j3Pic {version}` label from Cargo package metadata, exposes the source code
+  link `https://github.com/edgarp9` as a clickable control, and displays only the
+  bundled `about.txt` text in the license text area.
 
 ## Current Scope
 
@@ -169,12 +178,17 @@ unsupported, inaccessible, not a file, or fails decoding, the app keeps running 
 shows a user-facing error message.
 
 The viewer shows a native Win32 context menu from `WM_CONTEXTMENU`, including
-open, export, clipboard, view, rotation, fullscreen, and settings commands. Commands
-that require a loaded image are unavailable when the image state is empty. The
-settings command is always the final menu item and enters the platform boundary
-through `open_settings_dialog(hwnd)`, which opens the modal native Win32 settings
-dialog titled `j3Pic Settings` or `j3Pic 설정` depending on the selected UI
-language.
+open, export, clipboard, view, rotation, fullscreen, about, and settings commands.
+Commands that require a loaded image are unavailable when the image state is empty.
+The about command is available without an image and opens a modal About dialog
+centered over the main viewer window with an automatic version label such as
+`j3Pic 0.2.0`, a clickable source code link to `https://github.com/edgarp9`,
+and the bundled `about.txt` content, including the project license,
+GPL-3.0-or-later distribution statement, license/source locations, and a reference
+to the separate `THIRD_PARTY_NOTICES.txt` file. The settings command is always the
+final menu item and enters the platform boundary through
+`open_settings_dialog(hwnd)`, which opens the modal native Win32 settings dialog
+titled `j3Pic Settings` or `j3Pic 설정` depending on the selected UI language.
 
 The export command first opens a modal `Export Options` or `내보내기 옵션`
 dialog. It starts with PNG as the selected export format, shows the
@@ -193,7 +207,7 @@ always writes 16x16, 32x32, 48x48, and 256x256 icon frames.
 
 The settings dialog edits a draft `AppConfig` only. `OK`/`확인` validates the
 visible fields, applies the resulting config to the running `ViewerApp`, and
-writes it through the normal `config.txt` save path. `Cancel`/`취소` and the
+writes it through the normal executable-local config save path. `Cancel`/`취소` and the
 window close button discard the draft without changing the app. `Defaults`/`기본값`
 replaces only the dialog draft with values based on `AppConfig::default`; it does
 not affect the running viewer until the user later confirms. Numeric parse
@@ -276,11 +290,11 @@ normal navigation decode path is used instead.
 
 ## User Configuration
 
-The viewer persists user configuration in a `config.txt` file under the per-user
-Windows roaming application data directory, in the app-specific `j3Pic` folder. If
-that location is unavailable, the app may fall back to the local application data
-directory; if no standard directory is available, configuration loading and saving are
-skipped and the app still runs with defaults.
+The viewer persists user configuration next to the running executable. The file name
+is the executable file stem with a `.toml` extension, for example `j3pic.toml` next
+to `j3pic.exe` on Windows or next to `j3pic` on Linux. If the executable path cannot
+be resolved, configuration loading and saving are skipped and the app still runs
+with defaults.
 
 Saved configuration values:
 
@@ -300,7 +314,7 @@ Saved configuration values:
   values outside this range are clamped.
 - Animation autoplay: `true` by default. When `false`, newly loaded animated images
   start paused.
-- User-adjustable domain settings are persisted in the same `version=1` file as
+- User-adjustable domain settings are persisted in the same `version=1` TOML file as
   optional keys. Missing keys keep the previous behavior exactly: zoom uses
   `0.05` through `32.0` with step factor `1.25`; large-image and cache decisions
   use `ImageMemoryPolicy::DEFAULT`; animation frame delays use `100 ms`, clamped
@@ -366,7 +380,7 @@ Saved configuration values:
 
 Final settings reference. UI paths start from the main viewer context menu
 `Settings`/`설정`, which opens the `j3Pic Settings`/`j3Pic 설정` dialog. Values
-marked `config.txt only` are persisted for compatibility and advanced policy
+marked `config file only` are persisted for compatibility and advanced policy
 tuning but are not exposed as editable Win32 dialog controls.
 
 | Area | Config key(s) | Default | Allowed values or correction | UI path |
@@ -375,13 +389,13 @@ tuning but are not exposed as editable Win32 dialog controls.
 | UI language | `ui_language` | `english` | `english`/`en` or `korean`/`ko`/`kr`; unknown values fall back to English | `Settings > General > Language` / `설정 > 일반 > 언어` |
 | Default view mode | `default_view_mode` | `fit_to_window` | `fit_to_window` or `actual_size`; `manual_zoom` is corrected to `fit_to_window` | `설정 > 일반 > 기본 보기 모드` |
 | Scaling quality | `scaling_quality` | `balanced` | `nearest`, `balanced`, `high_quality` | `설정 > 일반 > 스케일링 품질` |
-| Recent folder | `recent_folder` | none | Escaped path string; empty path is ignored | Updated after successful image load, no settings control |
+| Recent folder | `recent_folder` | none | TOML string; empty path is ignored | Updated after successful image load, no settings control |
 | JPEG export quality | `export_default_quality` | `90` | `1..=100`, clamped on config load | `설정 > 내보내기 > JPEG 품질` |
 | Animation autoplay | `animation_autoplay` | `true` | `true/false`, plus `1/0` and `yes/no` aliases in config | `설정 > 애니메이션 > 자동재생` |
 | Zoom bounds and step | `min_zoom_scale`, `max_zoom_scale`, `zoom_step_factor` | `0.05`, `32.0`, `1.25` | `min`: `0.01..=1.0`; `max`: `1.0..=128.0`; `step`: `1.01..=8.0`; dialog rejects `min > max` | `설정 > 줌` |
 | Large image pixel policy | `large_image_pixel_threshold`, `max_image_pixels`, `preview_max_pixels`, `preview_oversample`, `full_resolution_request_scale` | `24,000,000`, `160,000,000`, `8,000,000`, `2`, `0.75` | Pixel limits: `1..=1,000,000,000`; preview oversample: `1..=8`; request scale: `0.05..=32.0`; large and preview limits are capped by max image pixels | `설정 > 대용량 이미지/메모리` |
 | Memory cache policy | `max_resident_mib`, `max_cache_entry_mib`, `max_cache_entries` | `256`, `128`, `2` | MiB values: `1..=4096`; cache entries: `0..=64`; per-entry MiB is capped by total resident MiB | `설정 > 대용량 이미지/메모리` |
-| Decode and hidden memory policy | `fallback_viewport_width`, `fallback_viewport_height`, `max_transient_decode_mib`, `max_full_resolution_mib`, `max_animation_metadata_frames` | `1920`, `1080`, `640`, `128`, `10,000` | Viewport edges: `1..=16384`; MiB values: `1..=4096`; metadata frames: `1..=1,000,000`; full-resolution MiB is capped by transient decode MiB | `config.txt` only |
+| Decode and hidden memory policy | `fallback_viewport_width`, `fallback_viewport_height`, `max_transient_decode_mib`, `max_full_resolution_mib`, `max_animation_metadata_frames` | `1920`, `1080`, `640`, `128`, `10,000` | Viewport edges: `1..=16384`; MiB values: `1..=4096`; metadata frames: `1..=1,000,000`; full-resolution MiB is capped by transient decode MiB | `config file only` |
 | Animation timing | `default_frame_delay_ms`, `min_frame_delay_ms`, `max_frame_delay_ms` | `100`, `10`, `60,000` | Each value `1..=600,000`; dialog requires `min <= default <= max`; config load normalizes into that relationship | `설정 > 애니메이션` |
 | Folder navigation | `wrap_navigation`, `auto_skip_failed_navigation`, `max_navigation_attempts_per_command` | `true`, `false`, `1` | Attempts `1..=100`; auto-skip uses the attempt limit, otherwise failed navigation reports and keeps the current image | `설정 > 탐색` |
 | Export format policy | `default_export_format_policy` | `png` | `source`, `png`, `jpeg`, `bmp`, `webp`, `ico`; source GIF, TIFF, and TGA fall back to PNG for export | `설정 > 내보내기 > 기본 포맷 정책` |
@@ -397,9 +411,9 @@ clamped ranges. Read permission errors do not fail app startup; the app continue
 defaults.
 
 Configuration saving is also best-effort. On shutdown, the app writes a temporary
-config file in the same directory and then replaces the real config file. Directory
-creation, write, and replace errors are ignored at the app boundary so the viewer can
-exit cleanly without turning configuration persistence failures into user-facing
+config file in the executable directory and then replaces the real config file.
+Directory, write, and replace errors are ignored at the app boundary so the viewer
+can exit cleanly without turning configuration persistence failures into user-facing
 runtime failures.
 
 ## Image Export

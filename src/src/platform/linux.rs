@@ -19,6 +19,7 @@ use super::{
     paths_refer_to_same_existing_file, same_source_export_message, ExportFileSelection,
     PROJECT_LINK_URL,
 };
+use crate::about;
 use crate::app::{
     AnimationFrameDecodeRequest, AnimationFrameOutcome, AppCommandOutcome, DecodeApplyOutcome,
     DecodeFailurePresentation, ImageDecodePurpose, ImageDecodeRequest, ImageExportRequest,
@@ -680,6 +681,7 @@ impl GtkViewer {
             Command::ExportImage => self.export_image_dialog(),
             Command::CopyImageToClipboard => self.copy_current_image_to_clipboard(),
             Command::ToggleFullscreen => self.toggle_fullscreen(),
+            Command::OpenAbout => self.open_about_dialog(),
             Command::OpenSettings => self.open_settings_dialog(),
             Command::ExitFullscreenOrQuit => self.exit_fullscreen_or_quit(),
             Command::Quit => self.window.close(),
@@ -1768,6 +1770,14 @@ impl GtkViewer {
         )
     }
 
+    fn open_about_dialog(self: &Rc<Self>) {
+        let language = self.app.borrow().config_snapshot().ui_language();
+        let parent = self.window.clone();
+        glib::MainContext::default().spawn_local(async move {
+            show_about_dialog(&parent, language).await;
+        });
+    }
+
     fn open_settings_dialog(self: &Rc<Self>) {
         let base = self.app.borrow().config_snapshot();
         let weak = Rc::downgrade(self);
@@ -1969,6 +1979,10 @@ fn context_menu_entries() -> &'static [ContextMenuEntry] {
             requires_image: false,
         },
         ContextMenuEntry::Separator,
+        ContextMenuEntry::Command {
+            command: Command::OpenAbout,
+            requires_image: false,
+        },
         ContextMenuEntry::Command {
             command: Command::OpenSettings,
             requires_image: false,
@@ -3730,6 +3744,67 @@ async fn confirm_export_overwrite(
 
 fn export_overwrite_default_response() -> gtk::ResponseType {
     gtk::ResponseType::Yes
+}
+
+async fn show_about_dialog(parent: &gtk::ApplicationWindow, language: UiLanguage) {
+    let dialog = gtk::Dialog::builder()
+        .title(about::about_title(language))
+        .transient_for(parent)
+        .modal(true)
+        .default_width(450)
+        .default_height(400)
+        .build();
+    dialog.add_button(
+        match language {
+            UiLanguage::English => "OK",
+            UiLanguage::Korean => "확인",
+        },
+        gtk::ResponseType::Ok,
+    );
+    dialog.set_default_response(gtk::ResponseType::Ok);
+
+    let root = gtk::Box::new(gtk::Orientation::Vertical, 8);
+    root.set_margin_top(12);
+    root.set_margin_bottom(12);
+    root.set_margin_start(12);
+    root.set_margin_end(12);
+
+    let version_label = gtk::Label::new(Some(&about::version_label()));
+    version_label.set_xalign(0.0);
+    root.append(&version_label);
+
+    let source_code_link = gtk::LinkButton::with_label(
+        PROJECT_LINK_URL,
+        &format!("{} {PROJECT_LINK_URL}", about::source_code_label(language)),
+    );
+    source_code_link.set_halign(gtk::Align::Start);
+    root.append(&source_code_link);
+
+    let licenses_label = gtk::Label::new(Some(about::licenses_label(language)));
+    licenses_label.set_xalign(0.0);
+    root.append(&licenses_label);
+
+    let text_view = gtk::TextView::new();
+    text_view.set_editable(false);
+    text_view.set_cursor_visible(false);
+    text_view.set_monospace(true);
+    text_view.set_wrap_mode(gtk::WrapMode::None);
+    text_view
+        .buffer()
+        .set_text(&about::about_license_text(language));
+
+    let scrolled = gtk::ScrolledWindow::builder()
+        .hexpand(true)
+        .vexpand(true)
+        .min_content_height(240)
+        .build();
+    scrolled.set_policy(gtk::PolicyType::Automatic, gtk::PolicyType::Automatic);
+    scrolled.set_child(Some(&text_view));
+    root.append(&scrolled);
+
+    dialog.content_area().append(&root);
+    let _ = dialog.run_future().await;
+    dialog.close();
 }
 
 async fn show_settings_dialog(
@@ -5756,6 +5831,10 @@ mod tests {
             },
             ExpectedContextMenuEntry::Separator,
             ExpectedContextMenuEntry::Command {
+                command: Command::OpenAbout,
+                requires_image: false,
+            },
+            ExpectedContextMenuEntry::Command {
                 command: Command::OpenSettings,
                 requires_image: false,
             },
@@ -5782,6 +5861,14 @@ mod tests {
         assert_eq!(
             ui_text::context_menu_label(UiLanguage::Korean, Command::OpenImage),
             "열기..."
+        );
+        assert_eq!(
+            ui_text::context_menu_label(UiLanguage::English, Command::OpenAbout),
+            "About..."
+        );
+        assert_eq!(
+            ui_text::context_menu_label(UiLanguage::Korean, Command::OpenAbout),
+            "정보..."
         );
     }
 

@@ -51,6 +51,7 @@ use windows_sys::Win32::UI::WindowsAndMessaging::{
     WM_SYSKEYDOWN, WM_TIMER, WNDCLASSW, WS_OVERLAPPEDWINDOW,
 };
 
+use super::about_dialog::show_about_dialog;
 use super::export_options_dialog::{
     show_export_options_dialog, ExportOptionsDialogDefaults, ExportOptionsDialogOutcome,
 };
@@ -334,6 +335,7 @@ mod context_menu {
     const CONTEXT_MENU_ID_ROTATE_COUNTER_CLOCKWISE: usize = 0x7107;
     const CONTEXT_MENU_ID_TOGGLE_FULLSCREEN: usize = 0x7108;
     pub(super) const CONTEXT_MENU_ID_OPEN_SETTINGS: usize = 0x7109;
+    pub(super) const CONTEXT_MENU_ID_OPEN_ABOUT: usize = 0x710a;
 
     #[derive(Clone, Copy)]
     pub(super) struct ContextMenuCommand {
@@ -392,6 +394,11 @@ mod context_menu {
             requires_image: false,
         }),
         ContextMenuEntry::Separator,
+        ContextMenuEntry::Command(ContextMenuCommand {
+            id: CONTEXT_MENU_ID_OPEN_ABOUT,
+            command: Command::OpenAbout,
+            requires_image: false,
+        }),
         ContextMenuEntry::Command(ContextMenuCommand {
             id: CONTEXT_MENU_ID_OPEN_SETTINGS,
             command: Command::OpenSettings,
@@ -5475,6 +5482,7 @@ fn handle_command(hwnd: HWND, command: Command) {
         Command::ExportImage => export_image_from_dialog(hwnd),
         Command::CopyImageToClipboard => copy_current_image_to_clipboard(hwnd),
         Command::ToggleFullscreen => toggle_fullscreen(hwnd),
+        Command::OpenAbout => open_about_dialog(hwnd),
         Command::OpenSettings => open_settings_dialog(hwnd),
         Command::ExitFullscreenOrQuit => exit_fullscreen_or_quit(hwnd),
         Command::Quit => quit_window(hwnd),
@@ -5494,6 +5502,26 @@ fn handle_command(hwnd: HWND, command: Command) {
 enum AppCommandRenderCacheUpdate {
     Immediate,
     Deferred,
+}
+
+fn open_about_dialog(hwnd: HWND) {
+    let language = with_app_mut(hwnd, |app| app.config_snapshot().ui_language())
+        .unwrap_or_else(UiLanguage::default);
+    if let Err(error) = show_about_dialog(hwnd, language) {
+        debug_output_line(&format!(
+            "[j3Pic] about dialog failed; internal={}; source={}",
+            error,
+            error_source_text(&error)
+        ));
+        show_error_message(
+            hwnd,
+            viewer_text(
+                hwnd,
+                "Could not open the About window.",
+                "정보 창을 열 수 없습니다.",
+            ),
+        );
+    }
 }
 
 fn open_settings_dialog(hwnd: HWND) {
@@ -8383,6 +8411,7 @@ mod tests {
             None,
             Some((Command::ToggleFullscreen, false)),
             None,
+            Some((Command::OpenAbout, false)),
             Some((Command::OpenSettings, false)),
         ];
         let actual = context_menu::CONTEXT_MENU_ENTRIES
@@ -8403,6 +8432,14 @@ mod tests {
         assert_eq!(
             crate::ui_text::context_menu_label(UiLanguage::Korean, Command::OpenImage),
             "열기..."
+        );
+        assert_eq!(
+            crate::ui_text::context_menu_label(UiLanguage::English, Command::OpenAbout),
+            "About..."
+        );
+        assert_eq!(
+            crate::ui_text::context_menu_label(UiLanguage::Korean, Command::OpenAbout),
+            "정보..."
         );
     }
 

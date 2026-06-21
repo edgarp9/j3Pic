@@ -1,3 +1,4 @@
+pub(crate) mod about;
 pub mod app;
 pub mod domain;
 pub mod infra;
@@ -156,7 +157,7 @@ mod tests {
     }
 
     #[test]
-    fn startup_config_skips_destroy_save_without_config_directory() {
+    fn startup_config_skips_destroy_save_without_config_path() {
         assert_eq!(
             startup_config_from_load_result(Ok(AppConfig::default()), false),
             StartupConfig {
@@ -169,7 +170,7 @@ mod tests {
     #[test]
     fn startup_config_falls_back_to_defaults_without_destroy_save_when_config_load_fails() {
         let error = AppConfigLoadError::FileRead {
-            path: PathBuf::from("config.txt"),
+            path: PathBuf::from("j3pic.toml"),
             source: io::Error::new(io::ErrorKind::PermissionDenied, "denied"),
         };
 
@@ -185,7 +186,7 @@ mod tests {
     #[test]
     fn startup_config_blocks_destroy_save_when_config_parse_fails() {
         let error = AppConfigLoadError::Parse {
-            path: PathBuf::from("config.txt"),
+            path: PathBuf::from("j3pic.toml"),
             source: AppConfigParseError::UnsupportedVersion { line: 1 },
         };
 

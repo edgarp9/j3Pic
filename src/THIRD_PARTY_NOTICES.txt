@@ -1,0 +1,869 @@
+THIRD PARTY NOTICES
+===================
+
+Project: j3Pic
+Project License: GNU General Public License v3.0 or later (GPL-3.0-or-later)
+Project Repository: https://github.com/edgarp9
+
+
+Corresponding Source
+--------------------
+
+This binary release is distributed under GPL-3.0-or-later.
+
+Source code for this release:
+https://github.com/edgarp9
+
+Full project license text:
+LICENSE
+
+
+Third-Party Component Summary
+-----------------------------
+
+Component: Google Fonts Material Symbols / Material Icons
+Version: Bundled icon resources in this repository
+License: Apache-2.0
+Copyright / Notice: Google Material Symbols/Icons by Google; upstream Apache-2.0 notice
+Source URL: https://fonts.google.com/icons and https://github.com/google/material-design-icons
+Modified: Yes; icon artwork was converted/recolored into repository icon resources
+Distribution: Bundled as icon.svg and icon.ico resources
+
+Cargo Component Inventory
+-------------------------
+
+- adler2 2.0.1 | License: 0BSD OR MIT OR Apache-2.0 | Notice: Jonas Schievink <jonasschievink@gmail.com>; oyvindln <oyvindln@users.noreply.github.com> | Source URL: https://github.com/oyvindln/adler2 | Modified: No
+- autocfg 1.5.0 | License: Apache-2.0 OR MIT | Notice: Josh Stone <cuviper@gmail.com> | Source URL: https://github.com/cuviper/autocfg | Modified: No
+- bitflags 2.11.1 | License: MIT OR Apache-2.0 | Notice: The Rust Project Developers | Source URL: https://github.com/bitflags/bitflags | Modified: No
+- bitvec 1.0.1 | License: MIT | Notice: Cargo metadata authors not specified; see upstream repository history | Source URL: https://github.com/bitvecto-rs/bitvec | Modified: No
+- bytemuck 1.25.0 | License: Zlib OR Apache-2.0 OR MIT | Notice: Lokathor <zefria@gmail.com> | Source URL: https://github.com/Lokathor/bytemuck | Modified: No
+- byteorder-lite 0.1.0 | License: Unlicense OR MIT | Notice: Cargo metadata authors not specified; see upstream repository history | Source URL: https://github.com/image-rs/byteorder-lite | Modified: No
+- cairo-rs 0.22.0 | License: MIT | Notice: The gtk-rs Project Developers | Source URL: https://github.com/gtk-rs/gtk-rs-core | Modified: No
+- cairo-sys-rs 0.22.0 | License: MIT | Notice: The gtk-rs Project Developers | Source URL: https://github.com/gtk-rs/gtk-rs-core | Modified: No
+- cc 1.2.62 | License: MIT OR Apache-2.0 | Notice: Alex Crichton <alex@alexcrichton.com> | Source URL: https://github.com/rust-lang/cc-rs | Modified: No
+- cfg-expr 0.20.8 | License: MIT OR Apache-2.0 | Notice: Embark <opensource@embark-studios.com>; Jake Shadle <jake.shadle@embark-studios.com> | Source URL: https://github.com/EmbarkStudios/cfg-expr | Modified: No
+- cfg-if 1.0.4 | License: MIT OR Apache-2.0 | Notice: Alex Crichton <alex@alexcrichton.com> | Source URL: https://github.com/rust-lang/cfg-if | Modified: No
+- color_quant 1.1.0 | License: MIT | Notice: nwin <nwin@users.noreply.github.com> | Source URL: https://github.com/image-rs/color_quant.git | Modified: No
+- crc32fast 1.5.0 | License: MIT OR Apache-2.0 | Notice: Sam Rijs <srijs@airpost.net>; Alex Crichton <alex@alexcrichton.com> | Source URL: https://github.com/srijs/rust-crc32fast | Modified: No
+- crunchy 0.2.4 | License: MIT | Notice: Eira Fransham <jackefransham@gmail.com> | Source URL: https://github.com/eira-fransham/crunchy | Modified: No
+- equivalent 1.0.2 | License: Apache-2.0 OR MIT | Notice: Cargo metadata authors not specified; see upstream repository history | Source URL: https://github.com/indexmap-rs/equivalent | Modified: No
+- fax 0.2.6 | License: MIT | Notice: Sebastian K <s3bk@protonmail.com> | Source URL: https://github.com/pdf-rs/fax | Modified: No
+- fax_derive 0.2.0 | License: MIT | Notice: Sebastian K <s3bk@protonmail.com> | Source URL: https://github.com/pdf-rs/fax | Modified: No
+- fdeflate 0.3.7 | License: MIT OR Apache-2.0 | Notice: The image-rs Developers | Source URL: https://github.com/image-rs/fdeflate | Modified: No
+- field-offset 0.3.6 | License: MIT OR Apache-2.0 | Notice: Diggory Blake <diggsey@googlemail.com> | Source URL: https://github.com/Diggsey/rust-field-offset | Modified: No
+- find-msvc-tools 0.1.9 | License: MIT OR Apache-2.0 | Notice: Cargo metadata authors not specified; see upstream repository history | Source URL: https://github.com/rust-lang/cc-rs | Modified: No
+- flate2 1.1.9 | License: MIT OR Apache-2.0 | Notice: Alex Crichton <alex@alexcrichton.com>; Josh Triplett <josh@joshtriplett.org> | Source URL: https://github.com/rust-lang/flate2-rs | Modified: No
+- funty 2.0.0 | License: MIT | Notice: myrrlyn <self@myrrlyn.dev> | Source URL: https://github.com/myrrlyn/funty | Modified: No
+- futures-channel 0.3.32 | License: MIT OR Apache-2.0 | Notice: Cargo metadata authors not specified; see upstream repository history | Source URL: https://github.com/rust-lang/futures-rs | Modified: No
+- futures-core 0.3.32 | License: MIT OR Apache-2.0 | Notice: Cargo metadata authors not specified; see upstream repository history | Source URL: https://github.com/rust-lang/futures-rs | Modified: No
+- futures-executor 0.3.32 | License: MIT OR Apache-2.0 | Notice: Cargo metadata authors not specified; see upstream repository history | Source URL: https://github.com/rust-lang/futures-rs | Modified: No
+- futures-io 0.3.32 | License: MIT OR Apache-2.0 | Notice: Cargo metadata authors not specified; see upstream repository history | Source URL: https://github.com/rust-lang/futures-rs | Modified: No
+- futures-macro 0.3.32 | License: MIT OR Apache-2.0 | Notice: Cargo metadata authors not specified; see upstream repository history | Source URL: https://github.com/rust-lang/futures-rs | Modified: No
+- futures-task 0.3.32 | License: MIT OR Apache-2.0 | Notice: Cargo metadata authors not specified; see upstream repository history | Source URL: https://github.com/rust-lang/futures-rs | Modified: No
+- futures-util 0.3.32 | License: MIT OR Apache-2.0 | Notice: Cargo metadata authors not specified; see upstream repository history | Source URL: https://github.com/rust-lang/futures-rs | Modified: No
+- gdk-pixbuf 0.22.0 | License: MIT | Notice: The gtk-rs Project Developers | Source URL: https://github.com/gtk-rs/gtk-rs-core | Modified: No
+- gdk-pixbuf-sys 0.22.0 | License: MIT | Notice: The gtk-rs Project Developers | Source URL: https://github.com/gtk-rs/gtk-rs-core | Modified: No
+- gdk4 0.11.2 | License: MIT | Notice: The gtk-rs Project Developers | Source URL: https://github.com/gtk-rs/gtk4-rs | Modified: No
+- gdk4-sys 0.11.2 | License: MIT | Notice: The gtk-rs Project Developers | Source URL: https://github.com/gtk-rs/gtk4-rs | Modified: No
+- gif 0.14.2 | License: MIT OR Apache-2.0 | Notice: The image-rs Developers | Source URL: https://github.com/image-rs/image-gif | Modified: No
+- gio 0.22.6 | License: MIT | Notice: The gtk-rs Project Developers | Source URL: https://github.com/gtk-rs/gtk-rs-core | Modified: No
+- gio-sys 0.22.0 | License: MIT | Notice: The gtk-rs Project Developers | Source URL: https://github.com/gtk-rs/gtk-rs-core | Modified: No
+- glib 0.22.7 | License: MIT | Notice: The gtk-rs Project Developers | Source URL: https://github.com/gtk-rs/gtk-rs-core | Modified: No
+- glib-macros 0.22.6 | License: MIT | Notice: The gtk-rs Project Developers | Source URL: https://github.com/gtk-rs/gtk-rs-core | Modified: No
+- glib-sys 0.22.6 | License: MIT | Notice: The gtk-rs Project Developers | Source URL: https://github.com/gtk-rs/gtk-rs-core | Modified: No
+- gobject-sys 0.22.6 | License: MIT | Notice: The gtk-rs Project Developers | Source URL: https://github.com/gtk-rs/gtk-rs-core | Modified: No
+- graphene-rs 0.22.0 | License: MIT | Notice: The gtk-rs Project Developers | Source URL: https://github.com/gtk-rs/gtk-rs-core | Modified: No
+- graphene-sys 0.22.0 | License: MIT | Notice: The gtk-rs Project Developers | Source URL: https://github.com/gtk-rs/gtk-rs-core | Modified: No
+- gsk4 0.11.1 | License: MIT | Notice: The gtk-rs Project Developers | Source URL: https://github.com/gtk-rs/gtk4-rs | Modified: No
+- gsk4-sys 0.11.1 | License: MIT | Notice: The gtk-rs Project Developers | Source URL: https://github.com/gtk-rs/gtk4-rs | Modified: No
+- gtk4 0.11.3 | License: MIT | Notice: The gtk-rs Project Developers | Source URL: https://github.com/gtk-rs/gtk4-rs | Modified: No
+- gtk4-macros 0.11.0 | License: MIT | Notice: The gtk-rs Project Developers | Source URL: https://github.com/gtk-rs/gtk4-rs | Modified: No
+- gtk4-sys 0.11.3 | License: MIT | Notice: The gtk-rs Project Developers | Source URL: https://github.com/gtk-rs/gtk4-rs | Modified: No
+- half 2.7.1 | License: MIT OR Apache-2.0 | Notice: Kathryn Long <squeeself@gmail.com> | Source URL: https://github.com/VoidStarKat/half-rs | Modified: No
+- hashbrown 0.17.1 | License: MIT OR Apache-2.0 | Notice: Cargo metadata authors not specified; see upstream repository history | Source URL: https://github.com/rust-lang/hashbrown | Modified: No
+- heck 0.5.0 | License: MIT OR Apache-2.0 | Notice: Cargo metadata authors not specified; see upstream repository history | Source URL: https://github.com/withoutboats/heck | Modified: No
+- image 0.25.10 | License: MIT OR Apache-2.0 | Notice: The image-rs Developers | Source URL: https://github.com/image-rs/image | Modified: No
+- image-webp 0.2.4 | License: MIT OR Apache-2.0 | Notice: Cargo metadata authors not specified; see upstream repository history | Source URL: https://github.com/image-rs/image-webp | Modified: No
+- indexmap 2.14.0 | License: Apache-2.0 OR MIT | Notice: Cargo metadata authors not specified; see upstream repository history | Source URL: https://github.com/indexmap-rs/indexmap | Modified: No
+- jpeg-decoder 0.3.2 | License: MIT OR Apache-2.0 | Notice: The image-rs Developers | Source URL: https://github.com/image-rs/jpeg-decoder | Modified: No
+- libc 0.2.186 | License: MIT OR Apache-2.0 | Notice: The Rust Project Developers | Source URL: https://github.com/rust-lang/libc | Modified: No
+- libdeflate-sys 1.25.2 | License: Apache-2.0 | Notice: Adam Kewley <contact@adamkewley.com> | Source URL: https://github.com/libdeflater/libdeflater | Modified: No
+- libdeflater 1.25.2 | License: Apache-2.0 | Notice: Adam Kewley <contact@adamkewley.com> | Source URL: https://github.com/libdeflater/libdeflater | Modified: No
+- log 0.4.29 | License: MIT OR Apache-2.0 | Notice: The Rust Project Developers | Source URL: https://github.com/rust-lang/log | Modified: No
+- memchr 2.8.2 | License: Unlicense OR MIT | Notice: Andrew Gallant <jamslam@gmail.com>; bluss | Source URL: https://github.com/BurntSushi/memchr | Modified: No
+- memoffset 0.9.1 | License: MIT | Notice: Gilad Naaman <gilad.naaman@gmail.com> | Source URL: https://github.com/Gilnaa/memoffset | Modified: No
+- miniz_oxide 0.8.9 | License: MIT OR Zlib OR Apache-2.0 | Notice: Frommi <daniil.liferenko@gmail.com>; oyvindln <oyvindln@users.noreply.github.com>; Rich Geldreich richgel99@gmail.com | Source URL: https://github.com/Frommi/miniz_oxide/tree/master/miniz_oxide | Modified: No
+- moxcms 0.8.1 | License: BSD-3-Clause OR Apache-2.0 | Notice: Radzivon Bartoshyk | Source URL: https://github.com/awxkee/moxcms.git | Modified: No
+- num-traits 0.2.19 | License: MIT OR Apache-2.0 | Notice: The Rust Project Developers | Source URL: https://github.com/rust-num/num-traits | Modified: No
+- oxipng 10.1.1 | License: MIT | Notice: Joshua Holmer <jholmer.in@gmail.com> | Source URL: https://github.com/oxipng/oxipng | Modified: No
+- pango 0.22.6 | License: MIT | Notice: The gtk-rs Project Developers | Source URL: https://github.com/gtk-rs/gtk-rs-core | Modified: No
+- pango-sys 0.22.0 | License: MIT | Notice: The gtk-rs Project Developers | Source URL: https://github.com/gtk-rs/gtk-rs-core | Modified: No
+- pin-project-lite 0.2.17 | License: Apache-2.0 OR MIT | Notice: Cargo metadata authors not specified; see upstream repository history | Source URL: https://github.com/taiki-e/pin-project-lite | Modified: No
+- pkg-config 0.3.33 | License: MIT OR Apache-2.0 | Notice: Alex Crichton <alex@alexcrichton.com> | Source URL: https://github.com/rust-lang/pkg-config-rs | Modified: No
+- png 0.18.1 | License: MIT OR Apache-2.0 | Notice: The image-rs Developers | Source URL: https://github.com/image-rs/image-png | Modified: No
+- proc-macro-crate 3.5.0 | License: MIT OR Apache-2.0 | Notice: Bastian Kocher <git@kchr.de> | Source URL: https://github.com/bkchr/proc-macro-crate | Modified: No
+- proc-macro2 1.0.106 | License: MIT OR Apache-2.0 | Notice: David Tolnay <dtolnay@gmail.com>; Alex Crichton <alex@alexcrichton.com> | Source URL: https://github.com/dtolnay/proc-macro2 | Modified: No
+- pxfm 0.1.29 | License: BSD-3-Clause OR Apache-2.0 | Notice: Radzivon Bartoshyk | Source URL: https://github.com/awxkee/pxfm | Modified: No
+- quick-error 2.0.1 | License: MIT/Apache-2.0 | Notice: Paul Colomiets <paul@colomiets.name>; Colin Kiegel <kiegel@gmx.de> | Source URL: http://github.com/tailhook/quick-error | Modified: No
+- quote 1.0.45 | License: MIT OR Apache-2.0 | Notice: David Tolnay <dtolnay@gmail.com> | Source URL: https://github.com/dtolnay/quote | Modified: No
+- radium 0.7.0 | License: MIT | Notice: Nika Layzell <nika@thelayzells.com>; myrrlyn <self@myrrlyn.dev> | Source URL: https://github.com/bitvecto-rs/radium | Modified: No
+- rgb 0.8.53 | License: MIT | Notice: Kornel Lesinski <kornel@geekhood.net>; James Forster <james.forsterer@gmail.com> | Source URL: https://github.com/kornelski/rust-rgb | Modified: No
+- rustc_version 0.4.1 | License: MIT OR Apache-2.0 | Notice: Cargo metadata authors not specified; see upstream repository history | Source URL: https://github.com/djc/rustc-version-rs | Modified: No
+- rustc-hash 2.1.2 | License: Apache-2.0 OR MIT | Notice: The Rust Project Developers | Source URL: https://github.com/rust-lang/rustc-hash | Modified: No
+- semver 1.0.28 | License: MIT OR Apache-2.0 | Notice: David Tolnay <dtolnay@gmail.com> | Source URL: https://github.com/dtolnay/semver | Modified: No
+- serde_core 1.0.228 | License: MIT OR Apache-2.0 | Notice: Erick Tryzelaar <erick.tryzelaar@gmail.com>; David Tolnay <dtolnay@gmail.com> | Source URL: https://github.com/serde-rs/serde | Modified: No
+- serde_derive 1.0.228 | License: MIT OR Apache-2.0 | Notice: Erick Tryzelaar <erick.tryzelaar@gmail.com>; David Tolnay <dtolnay@gmail.com> | Source URL: https://github.com/serde-rs/serde | Modified: No
+- serde_spanned 1.1.1 | License: MIT OR Apache-2.0 | Notice: Cargo metadata authors not specified; see upstream repository history | Source URL: https://github.com/toml-rs/toml | Modified: No
+- shlex 1.3.0 | License: MIT OR Apache-2.0 | Notice: comex <comexk@gmail.com>; Fenhl <fenhl@fenhl.net>; Adrian Taylor <adetaylor@chromium.org>; Alex Touchet <alextouchet@outlook.com>; Daniel Parks <dp+git@oxidized.org>; Garrett Berg <googberg@gmail.com> | Source URL: https://github.com/comex/rust-shlex | Modified: No
+- simd-adler32 0.3.9 | License: MIT | Notice: Marvin Countryman <me@maar.vin> | Source URL: https://github.com/mcountryman/simd-adler32 | Modified: No
+- slab 0.4.12 | License: MIT | Notice: Carl Lerche <me@carllerche.com> | Source URL: https://github.com/tokio-rs/slab | Modified: No
+- smallvec 1.15.2 | License: MIT OR Apache-2.0 | Notice: The Servo Project Developers | Source URL: https://github.com/servo/rust-smallvec | Modified: No
+- syn 2.0.117 | License: MIT OR Apache-2.0 | Notice: David Tolnay <dtolnay@gmail.com> | Source URL: https://github.com/dtolnay/syn | Modified: No
+- system-deps 7.0.8 | License: MIT OR Apache-2.0 | Notice: Guillaume Desmottes <guillaume.desmottes@collabora.com>; Josh Triplett <josh@joshtriplett.org> | Source URL: https://github.com/gdesmott/system-deps | Modified: No
+- tap 1.0.1 | License: MIT | Notice: Elliott Linder <elliott.darfink@gmail.com>; myrrlyn <self@myrrlyn.dev> | Source URL: https://github.com/myrrlyn/tap | Modified: No
+- target-lexicon 0.13.5 | License: Apache-2.0 WITH LLVM-exception | Notice: Dan Gohman <sunfish@mozilla.com> | Source URL: https://github.com/bytecodealliance/target-lexicon | Modified: No
+- tiff 0.11.3 | License: MIT | Notice: The image-rs Developers | Source URL: https://github.com/image-rs/image-tiff | Modified: No
+- toml 1.1.2+spec-1.1.0 | License: MIT OR Apache-2.0 | Notice: Cargo metadata authors not specified; see upstream repository history | Source URL: https://github.com/toml-rs/toml | Modified: No
+- toml_datetime 1.1.1+spec-1.1.0 | License: MIT OR Apache-2.0 | Notice: Cargo metadata authors not specified; see upstream repository history | Source URL: https://github.com/toml-rs/toml | Modified: No
+- toml_edit 0.25.12+spec-1.1.0 | License: MIT OR Apache-2.0 | Notice: Cargo metadata authors not specified; see upstream repository history | Source URL: https://github.com/toml-rs/toml | Modified: No
+- toml_parser 1.1.2+spec-1.1.0 | License: MIT OR Apache-2.0 | Notice: Cargo metadata authors not specified; see upstream repository history | Source URL: https://github.com/toml-rs/toml | Modified: No
+- toml_writer 1.1.1+spec-1.1.0 | License: MIT OR Apache-2.0 | Notice: Cargo metadata authors not specified; see upstream repository history | Source URL: https://github.com/toml-rs/toml | Modified: No
+- unicode-ident 1.0.24 | License: (MIT OR Apache-2.0) AND Unicode-3.0 | Notice: David Tolnay <dtolnay@gmail.com> | Source URL: https://github.com/dtolnay/unicode-ident | Modified: No
+- version_check 0.9.5 | License: MIT/Apache-2.0 | Notice: Sergio Benitez <sb@sergio.bz> | Source URL: https://github.com/SergioBenitez/version_check | Modified: No
+- version-compare 0.2.1 | License: MIT | Notice: Tim Visee <3a4fb3964f@sinenomine.email> | Source URL: https://gitlab.com/timvisee/version-compare | Modified: No
+- weezl 0.1.12 | License: MIT OR Apache-2.0 | Notice: The image-rs Developers | Source URL: https://github.com/image-rs/weezl | Modified: No
+- windows-link 0.2.1 | License: MIT OR Apache-2.0 | Notice: Cargo metadata authors not specified; see upstream repository history | Source URL: https://github.com/microsoft/windows-rs | Modified: No
+- windows-sys 0.61.2 | License: MIT OR Apache-2.0 | Notice: Cargo metadata authors not specified; see upstream repository history | Source URL: https://github.com/microsoft/windows-rs | Modified: No
+- winnow 1.0.3 | License: MIT | Notice: Cargo metadata authors not specified; see upstream repository history | Source URL: https://github.com/winnow-rs/winnow | Modified: No
+- winresource 0.1.31 | License: MIT | Notice: Max Resch <resch.max@gmail.com> | Source URL: https://github.com/BenjaminRi/winresource | Modified: No
+- wyz 0.5.1 | License: MIT | Notice: myrrlyn <self@myrrlyn.dev> | Source URL: https://github.com/myrrlyn/wyz | Modified: No
+- zerocopy 0.8.48 | License: BSD-2-Clause OR Apache-2.0 OR MIT | Notice: Joshua Liebow-Feeser <joshlf@google.com>; Jack Wrenn <jswrenn@amazon.com> | Source URL: https://github.com/google/zerocopy | Modified: No
+- zerocopy-derive 0.8.48 | License: BSD-2-Clause OR Apache-2.0 OR MIT | Notice: Joshua Liebow-Feeser <joshlf@google.com>; Jack Wrenn <jswrenn@amazon.com> | Source URL: https://github.com/google/zerocopy | Modified: No
+- zune-core 0.5.1 | License: MIT OR Apache-2.0 OR Zlib | Notice: Cargo metadata authors not specified; see upstream repository history | Source URL: https://github.com/etemesi254/zune-image | Modified: No
+- zune-jpeg 0.5.15 | License: MIT OR Apache-2.0 OR Zlib | Notice: caleb <etemesicaleb@gmail.com> | Source URL: https://github.com/etemesi254/zune-image/tree/dev/crates/zune-jpeg | Modified: No
+
+
+GTK / GNOME Runtime Note
+------------------------
+
+The gtk-rs crates listed above are Rust bindings licensed under MIT. Their
+upstream COPYRIGHT file states that the bindings provide interoperability with
+GNOME libraries but do not distribute those GNOME libraries. If a Linux binary
+release bundles GTK, GLib, Pango, Cairo, GDK, GSK, Graphene, GdkPixbuf, or
+other native GNOME libraries, include the applicable native library licenses
+and notices with that binary release.
+
+
+MIT-Licensed Components
+-----------------------
+
+The following components are distributed under the MIT License, either solely
+or as one option in a dual license. j3Pic does not modify these Cargo
+packages.
+
+- adler2 2.0.1
+- autocfg 1.5.0
+- bitflags 2.11.1
+- bitvec 1.0.1
+- bytemuck 1.25.0
+- byteorder-lite 0.1.0
+- cairo-rs 0.22.0
+- cairo-sys-rs 0.22.0
+- cc 1.2.62
+- cfg-expr 0.20.8
+- cfg-if 1.0.4
+- color_quant 1.1.0
+- crc32fast 1.5.0
+- crunchy 0.2.4
+- equivalent 1.0.2
+- fax 0.2.6
+- fax_derive 0.2.0
+- fdeflate 0.3.7
+- field-offset 0.3.6
+- find-msvc-tools 0.1.9
+- flate2 1.1.9
+- funty 2.0.0
+- futures-channel 0.3.32
+- futures-core 0.3.32
+- futures-executor 0.3.32
+- futures-io 0.3.32
+- futures-macro 0.3.32
+- futures-task 0.3.32
+- futures-util 0.3.32
+- gdk-pixbuf 0.22.0
+- gdk-pixbuf-sys 0.22.0
+- gdk4 0.11.2
+- gdk4-sys 0.11.2
+- gif 0.14.2
+- gio 0.22.6
+- gio-sys 0.22.0
+- glib 0.22.7
+- glib-macros 0.22.6
+- glib-sys 0.22.6
+- gobject-sys 0.22.6
+- graphene-rs 0.22.0
+- graphene-sys 0.22.0
+- gsk4 0.11.1
+- gsk4-sys 0.11.1
+- gtk4 0.11.3
+- gtk4-macros 0.11.0
+- gtk4-sys 0.11.3
+- half 2.7.1
+- hashbrown 0.17.1
+- heck 0.5.0
+- image 0.25.10
+- image-webp 0.2.4
+- indexmap 2.14.0
+- jpeg-decoder 0.3.2
+- libc 0.2.186
+- log 0.4.29
+- memchr 2.8.2
+- memoffset 0.9.1
+- miniz_oxide 0.8.9
+- num-traits 0.2.19
+- oxipng 10.1.1
+- pango 0.22.6
+- pango-sys 0.22.0
+- pin-project-lite 0.2.17
+- pkg-config 0.3.33
+- png 0.18.1
+- proc-macro-crate 3.5.0
+- proc-macro2 1.0.106
+- quick-error 2.0.1
+- quote 1.0.45
+- radium 0.7.0
+- rgb 0.8.53
+- rustc_version 0.4.1
+- rustc-hash 2.1.2
+- semver 1.0.28
+- serde_core 1.0.228
+- serde_derive 1.0.228
+- serde_spanned 1.1.1
+- shlex 1.3.0
+- simd-adler32 0.3.9
+- slab 0.4.12
+- smallvec 1.15.2
+- syn 2.0.117
+- system-deps 7.0.8
+- tap 1.0.1
+- tiff 0.11.3
+- toml 1.1.2+spec-1.1.0
+- toml_datetime 1.1.1+spec-1.1.0
+- toml_edit 0.25.12+spec-1.1.0
+- toml_parser 1.1.2+spec-1.1.0
+- toml_writer 1.1.1+spec-1.1.0
+- unicode-ident 1.0.24
+- version_check 0.9.5
+- version-compare 0.2.1
+- weezl 0.1.12
+- windows-link 0.2.1
+- windows-sys 0.61.2
+- winnow 1.0.3
+- winresource 0.1.31
+- wyz 0.5.1
+- zerocopy 0.8.48
+- zerocopy-derive 0.8.48
+- zune-core 0.5.1
+- zune-jpeg 0.5.15
+
+The full MIT License text is provided once in the License Texts section at the
+end of this file.
+
+
+Apache-2.0-Licensed Components
+------------------------------
+
+The following components are distributed under Apache-2.0, either solely or as
+one option in a dual license. No upstream NOTICE files were found in the
+checked Cargo package roots during this review.
+
+- adler2 2.0.1
+- autocfg 1.5.0
+- bitflags 2.11.1
+- bytemuck 1.25.0
+- cc 1.2.62
+- cfg-expr 0.20.8
+- cfg-if 1.0.4
+- crc32fast 1.5.0
+- equivalent 1.0.2
+- fdeflate 0.3.7
+- field-offset 0.3.6
+- find-msvc-tools 0.1.9
+- flate2 1.1.9
+- futures-channel 0.3.32
+- futures-core 0.3.32
+- futures-executor 0.3.32
+- futures-io 0.3.32
+- futures-macro 0.3.32
+- futures-task 0.3.32
+- futures-util 0.3.32
+- gif 0.14.2
+- half 2.7.1
+- hashbrown 0.17.1
+- heck 0.5.0
+- image 0.25.10
+- image-webp 0.2.4
+- indexmap 2.14.0
+- jpeg-decoder 0.3.2
+- libc 0.2.186
+- libdeflate-sys 1.25.2
+- libdeflater 1.25.2
+- log 0.4.29
+- miniz_oxide 0.8.9
+- moxcms 0.8.1
+- num-traits 0.2.19
+- pin-project-lite 0.2.17
+- pkg-config 0.3.33
+- png 0.18.1
+- proc-macro-crate 3.5.0
+- proc-macro2 1.0.106
+- pxfm 0.1.29
+- quick-error 2.0.1
+- quote 1.0.45
+- rustc_version 0.4.1
+- rustc-hash 2.1.2
+- semver 1.0.28
+- serde_core 1.0.228
+- serde_derive 1.0.228
+- serde_spanned 1.1.1
+- shlex 1.3.0
+- smallvec 1.15.2
+- syn 2.0.117
+- system-deps 7.0.8
+- target-lexicon 0.13.5
+- toml 1.1.2+spec-1.1.0
+- toml_datetime 1.1.1+spec-1.1.0
+- toml_edit 0.25.12+spec-1.1.0
+- toml_parser 1.1.2+spec-1.1.0
+- toml_writer 1.1.1+spec-1.1.0
+- unicode-ident 1.0.24
+- version_check 0.9.5
+- weezl 0.1.12
+- windows-link 0.2.1
+- windows-sys 0.61.2
+- zerocopy 0.8.48
+- zerocopy-derive 0.8.48
+- zune-core 0.5.1
+- zune-jpeg 0.5.15
+- Google Fonts Material Symbols / Material Icons
+
+The full Apache License 2.0 text is provided once in the License Texts section
+at the end of this file. The LLVM exception text used by target-lexicon is
+also included.
+
+
+Other Permissive License Components
+-----------------------------------
+
+The following additional permissive license families are present in the
+checked release dependency tree.
+
+0BSD:
+- adler2 2.0.1
+
+BSD-2-Clause:
+- zerocopy 0.8.48
+- zerocopy-derive 0.8.48
+
+BSD-3-Clause:
+- moxcms 0.8.1
+- pxfm 0.1.29
+
+Unlicense:
+- byteorder-lite 0.1.0
+- memchr 2.8.2
+
+Zlib:
+- bytemuck 1.25.0
+- miniz_oxide 0.8.9
+- zune-core 0.5.1
+- zune-jpeg 0.5.15
+
+Unicode-3.0:
+- unicode-ident 1.0.24
+
+
+GPL-Compatible / Copyleft Components
+------------------------------------
+
+No third-party GPL, LGPL, AGPL, or other copyleft Rust crate was identified in
+the checked Cargo dependency tree. The j3Pic project itself is
+GPL-3.0-or-later; its license text is provided in LICENSE.
+
+Linux releases may dynamically link to system-provided GNOME/GTK libraries.
+If a release bundles those native libraries, include their applicable licenses
+and notices in the release materials.
+
+
+SIL Open Font License Components
+--------------------------------
+
+No SIL Open Font License font was identified in the checked repository
+resources. Bundled app icons are Apache-2.0 resources, not OFL fonts.
+
+
+
+
+License Texts
+=============
+
+MIT License
+-----------
+
+Permission is hereby granted, free of charge, to any person obtaining a copy
+of this software and associated documentation files (the "Software"), to deal
+in the Software without restriction, including without limitation the rights
+to use, copy, modify, merge, publish, distribute, sublicense, and/or sell
+copies of the Software, and to permit persons to whom the Software is
+furnished to do so, subject to the following conditions:
+
+The above copyright notice and this permission notice shall be included in all
+copies or substantial portions of the Software.
+
+THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR
+IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY,
+FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL THE
+AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER
+LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM,
+OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE
+SOFTWARE.
+
+
+Apache License 2.0
+------------------
+
+Apache License
+Version 2.0, January 2004
+http://www.apache.org/licenses/
+
+TERMS AND CONDITIONS FOR USE, REPRODUCTION, AND DISTRIBUTION
+
+1. Definitions.
+
+   "License" shall mean the terms and conditions for use, reproduction,
+   and distribution as defined by Sections 1 through 9 of this document.
+
+   "Licensor" shall mean the copyright owner or entity authorized by
+   the copyright owner that is granting the License.
+
+   "Legal Entity" shall mean the union of the acting entity and all
+   other entities that control, are controlled by, or are under common
+   control with that entity. For the purposes of this definition,
+   "control" means (i) the power, direct or indirect, to cause the
+   direction or management of such entity, whether by contract or
+   otherwise, or (ii) ownership of fifty percent (50%) or more of the
+   outstanding shares, or (iii) beneficial ownership of such entity.
+
+   "You" (or "Your") shall mean an individual or Legal Entity
+   exercising permissions granted by this License.
+
+   "Source" form shall mean the preferred form for making modifications,
+   including but not limited to software source code, documentation
+   source, and configuration files.
+
+   "Object" form shall mean any form resulting from mechanical
+   transformation or translation of a Source form, including but
+   not limited to compiled object code, generated documentation,
+   and conversions to other media types.
+
+   "Work" shall mean the work of authorship, whether in Source or
+   Object form, made available under the License, as indicated by a
+   copyright notice that is included in or attached to the work
+   (an example is provided in the Appendix below).
+
+   "Derivative Works" shall mean any work, whether in Source or
+   Object form, that is based on (or derived from) the Work and for
+   which the editorial revisions, annotations, elaborations, or other
+   modifications represent, as a whole, an original work of authorship.
+   For the purposes of this License, Derivative Works shall not include
+   works that remain separable from, or merely link (or bind by name) to
+   the interfaces of, the Work and Derivative Works thereof.
+
+   "Contribution" shall mean any work of authorship, including
+   the original version of the Work and any modifications or additions
+   to that Work or Derivative Works thereof, that is intentionally
+   submitted to Licensor for inclusion in the Work by the copyright owner
+   or by an individual or Legal Entity authorized to submit on behalf of
+   the copyright owner. For the purposes of this definition, "submitted"
+   means any form of electronic, verbal, or written communication sent
+   to the Licensor or its representatives, including but not limited to
+   communication on electronic mailing lists, source code control systems,
+   and issue tracking systems that are managed by, or on behalf of, the
+   Licensor for the purpose of discussing and improving the Work, but
+   excluding communication that is conspicuously marked or otherwise
+   designated in writing by the copyright owner as "Not a Contribution."
+
+   "Contributor" shall mean Licensor and any individual or Legal Entity
+   on behalf of whom a Contribution has been received by Licensor and
+   subsequently incorporated within the Work.
+
+2. Grant of Copyright License. Subject to the terms and conditions of
+   this License, each Contributor hereby grants to You a perpetual,
+   worldwide, non-exclusive, no-charge, royalty-free, irrevocable
+   copyright license to reproduce, prepare Derivative Works of,
+   publicly display, publicly perform, sublicense, and distribute the
+   Work and such Derivative Works in Source or Object form.
+
+3. Grant of Patent License. Subject to the terms and conditions of
+   this License, each Contributor hereby grants to You a perpetual,
+   worldwide, non-exclusive, no-charge, royalty-free, irrevocable
+   (except as stated in this section) patent license to make, have made,
+   use, offer to sell, sell, import, and otherwise transfer the Work,
+   where such license applies only to those patent claims licensable
+   by such Contributor that are necessarily infringed by their
+   Contribution(s) alone or by combination of their Contribution(s)
+   with the Work to which such Contribution(s) was submitted. If You
+   institute patent litigation against any entity (including a
+   cross-claim or counterclaim in a lawsuit) alleging that the Work
+   or a Contribution incorporated within the Work constitutes direct
+   or contributory patent infringement, then any patent licenses
+   granted to You under this License for that Work shall terminate
+   as of the date such litigation is filed.
+
+4. Redistribution. You may reproduce and distribute copies of the
+   Work or Derivative Works thereof in any medium, with or without
+   modifications, and in Source or Object form, provided that You
+   meet the following conditions:
+
+   (a) You must give any other recipients of the Work or
+       Derivative Works a copy of this License; and
+
+   (b) You must cause any modified files to carry prominent notices
+       stating that You changed the files; and
+
+   (c) You must retain, in the Source form of any Derivative Works
+       that You distribute, all copyright, patent, trademark, and
+       attribution notices from the Source form of the Work,
+       excluding those notices that do not pertain to any part of
+       the Derivative Works; and
+
+   (d) If the Work includes a "NOTICE" text file as part of its
+       distribution, then any Derivative Works that You distribute must
+       include a readable copy of the attribution notices contained
+       within such NOTICE file, excluding those notices that do not
+       pertain to any part of the Derivative Works, in at least one
+       of the following places: within a NOTICE text file distributed
+       as part of the Derivative Works; within the Source form or
+       documentation, if provided along with the Derivative Works; or,
+       within a display generated by the Derivative Works, if and
+       wherever such third-party notices normally appear. The contents
+       of the NOTICE file are for informational purposes only and
+       do not modify the License. You may add Your own attribution
+       notices within Derivative Works that You distribute, alongside
+       or as an addendum to the NOTICE text from the Work, provided
+       that such additional attribution notices cannot be construed
+       as modifying the License.
+
+   You may add Your own copyright statement to Your modifications and
+   may provide additional or different license terms and conditions
+   for use, reproduction, or distribution of Your modifications, or
+   for any such Derivative Works as a whole, provided Your use,
+   reproduction, and distribution of the Work otherwise complies with
+   the conditions stated in this License.
+
+5. Submission of Contributions. Unless You explicitly state otherwise,
+   any Contribution intentionally submitted for inclusion in the Work
+   by You to the Licensor shall be under the terms and conditions of
+   this License, without any additional terms or conditions.
+   Notwithstanding the above, nothing herein shall supersede or modify
+   the terms of any separate license agreement you may have executed
+   with Licensor regarding such Contributions.
+
+6. Trademarks. This License does not grant permission to use the trade
+   names, trademarks, service marks, or product names of the Licensor,
+   except as required for reasonable and customary use in describing the
+   origin of the Work and reproducing the content of the NOTICE file.
+
+7. Disclaimer of Warranty. Unless required by applicable law or
+   agreed to in writing, Licensor provides the Work (and each
+   Contributor provides its Contributions) on an "AS IS" BASIS,
+   WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or
+   implied, including, without limitation, any warranties or conditions
+   of TITLE, NON-INFRINGEMENT, MERCHANTABILITY, or FITNESS FOR A
+   PARTICULAR PURPOSE. You are solely responsible for determining the
+   appropriateness of using or redistributing the Work and assume any
+   risks associated with Your exercise of permissions under this License.
+
+8. Limitation of Liability. In no event and under no legal theory,
+   whether in tort (including negligence), contract, or otherwise,
+   unless required by applicable law (such as deliberate and grossly
+   negligent acts) or agreed to in writing, shall any Contributor be
+   liable to You for damages, including any direct, indirect, special,
+   incidental, or consequential damages of any character arising as a
+   result of this License or out of the use or inability to use the
+   Work (including but not limited to damages for loss of goodwill,
+   work stoppage, computer failure or malfunction, or any and all
+   other commercial damages or losses), even if such Contributor
+   has been advised of the possibility of such damages.
+
+9. Accepting Warranty or Additional Liability. While redistributing
+   the Work or Derivative Works thereof, You may choose to offer,
+   and charge a fee for, acceptance of support, warranty, indemnity,
+   or other liability obligations and/or rights consistent with this
+   License. However, in accepting such obligations, You may act only
+   on Your own behalf and on Your sole responsibility, not on behalf
+   of any other Contributor, and only if You agree to indemnify,
+   defend, and hold each Contributor harmless for any liability
+   incurred by, or claims asserted against, such Contributor by reason
+   of your accepting any such warranty or additional liability.
+
+END OF TERMS AND CONDITIONS
+
+APPENDIX: How to apply the Apache License to your work.
+
+   To apply the Apache License to your work, attach the following
+   boilerplate notice, with the fields enclosed by brackets "[]"
+   replaced with your own identifying information. (Don't include
+   the brackets!)  The text should be enclosed in the appropriate
+   comment syntax for the file format. We also recommend that a
+   file or class name and description of purpose be included on the
+   same "printed page" as the copyright notice for easier
+   identification within third-party archives.
+
+Copyright [yyyy] [name of copyright owner]
+
+Licensed under the Apache License, Version 2.0 (the "License");
+you may not use this file except in compliance with the License.
+You may obtain a copy of the License at
+
+    http://www.apache.org/licenses/LICENSE-2.0
+
+Unless required by applicable law or agreed to in writing, software
+distributed under the License is distributed on an "AS IS" BASIS,
+WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+See the License for the specific language governing permissions and
+limitations under the License.
+
+
+LLVM Exceptions to the Apache 2.0 License
+-----------------------------------------
+
+As an exception, if, as a result of your compiling your source code, portions
+of this Software are embedded into an Object form of such source code, you
+may redistribute such embedded portions in such Object form without complying
+with the conditions of Sections 4(a), 4(b) and 4(d) of the License.
+
+In addition, if you combine or link compiled forms of this Software with
+software that is licensed under the GPLv2 ("Combined Software") and if a
+court of competent jurisdiction determines that the patent provision (Section
+3), the indemnity provision (Section 9) or other Section of the License
+conflicts with the conditions of the GPLv2, you may retroactively and
+prospectively choose to deem waived or otherwise exclude such Section(s) of
+the License, but only in their entirety and only with respect to the Combined
+Software.
+
+
+BSD 2-Clause License
+--------------------
+
+Copyright 2019 The Fuchsia Authors.
+
+Redistribution and use in source and binary forms, with or without
+modification, are permitted provided that the following conditions are met:
+
+1. Redistributions of source code must retain the above copyright notice, this
+   list of conditions and the following disclaimer.
+
+2. Redistributions in binary form must reproduce the above copyright notice,
+   this list of conditions and the following disclaimer in the documentation
+   and/or other materials provided with the distribution.
+
+THIS SOFTWARE IS PROVIDED BY THE COPYRIGHT HOLDERS AND CONTRIBUTORS "AS IS"
+AND ANY EXPRESS OR IMPLIED WARRANTIES, INCLUDING, BUT NOT LIMITED TO, THE
+IMPLIED WARRANTIES OF MERCHANTABILITY AND FITNESS FOR A PARTICULAR PURPOSE ARE
+DISCLAIMED. IN NO EVENT SHALL THE COPYRIGHT HOLDER OR CONTRIBUTORS BE LIABLE
+FOR ANY DIRECT, INDIRECT, INCIDENTAL, SPECIAL, EXEMPLARY, OR CONSEQUENTIAL
+DAMAGES (INCLUDING, BUT NOT LIMITED TO, PROCUREMENT OF SUBSTITUTE GOODS OR
+SERVICES; LOSS OF USE, DATA, OR PROFITS; OR BUSINESS INTERRUPTION) HOWEVER
+CAUSED AND ON ANY THEORY OF LIABILITY, WHETHER IN CONTRACT, STRICT LIABILITY,
+OR TORT (INCLUDING NEGLIGENCE OR OTHERWISE) ARISING IN ANY WAY OUT OF THE USE
+OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
+
+
+BSD 3-Clause License
+--------------------
+
+Copyright (c) Radzivon Bartoshyk. All rights reserved.
+
+Redistribution and use in source and binary forms, with or without modification,
+are permitted provided that the following conditions are met:
+
+1. Redistributions of source code must retain the above copyright notice, this
+   list of conditions and the following disclaimer.
+
+2. Redistributions in binary form must reproduce the above copyright notice,
+   this list of conditions and the following disclaimer in the documentation
+   and/or other materials provided with the distribution.
+
+3. Neither the name of the copyright holder nor the names of its contributors
+   may be used to endorse or promote products derived from this software
+   without specific prior written permission.
+
+THIS SOFTWARE IS PROVIDED BY THE COPYRIGHT HOLDERS AND CONTRIBUTORS "AS IS"
+AND ANY EXPRESS OR IMPLIED WARRANTIES, INCLUDING, BUT NOT LIMITED TO, THE
+IMPLIED WARRANTIES OF MERCHANTABILITY AND FITNESS FOR A PARTICULAR PURPOSE ARE
+DISCLAIMED. IN NO EVENT SHALL THE COPYRIGHT HOLDER OR CONTRIBUTORS BE LIABLE
+FOR ANY DIRECT, INDIRECT, INCIDENTAL, SPECIAL, EXEMPLARY, OR CONSEQUENTIAL
+DAMAGES (INCLUDING, BUT NOT LIMITED TO, PROCUREMENT OF SUBSTITUTE GOODS OR
+SERVICES; LOSS OF USE, DATA, OR PROFITS; OR BUSINESS INTERRUPTION) HOWEVER
+CAUSED AND ON ANY THEORY OF LIABILITY, WHETHER IN CONTRACT, STRICT LIABILITY,
+OR TORT (INCLUDING NEGLIGENCE OR OTHERWISE) ARISING IN ANY WAY OUT OF THE USE
+OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
+
+
+0BSD License
+------------
+
+Copyright (C) Jonas Schievink <jonasschievink@gmail.com>
+
+Permission to use, copy, modify, and/or distribute this software for any
+purpose with or without fee is hereby granted.
+
+THE SOFTWARE IS PROVIDED "AS IS" AND THE AUTHOR DISCLAIMS ALL WARRANTIES WITH
+REGARD TO THIS SOFTWARE INCLUDING ALL IMPLIED WARRANTIES OF MERCHANTABILITY
+AND FITNESS. IN NO EVENT SHALL THE AUTHOR BE LIABLE FOR ANY SPECIAL, DIRECT,
+INDIRECT, OR CONSEQUENTIAL DAMAGES OR ANY DAMAGES WHATSOEVER RESULTING FROM
+LOSS OF USE, DATA OR PROFITS, WHETHER IN AN ACTION OF CONTRACT, NEGLIGENCE OR
+OTHER TORTIOUS ACTION, ARISING OUT OF OR IN CONNECTION WITH THE USE OR
+PERFORMANCE OF THIS SOFTWARE.
+
+
+The Unlicense
+-------------
+
+This is free and unencumbered software released into the public domain.
+
+Anyone is free to copy, modify, publish, use, compile, sell, or distribute
+this software, either in source code form or as a compiled binary, for any
+purpose, commercial or non-commercial, and by any means.
+
+In jurisdictions that recognize copyright laws, the author or authors of this
+software dedicate any and all copyright interest in the software to the public
+domain. We make this dedication for the benefit of the public at large and to
+the detriment of our heirs and successors. We intend this dedication to be an
+overt act of relinquishment in perpetuity of all present and future rights to
+this software under copyright law.
+
+THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR
+IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY,
+FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL THE
+AUTHORS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER LIABILITY, WHETHER IN AN
+ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM, OUT OF OR IN CONNECTION
+WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE SOFTWARE.
+
+For more information, please refer to <http://unlicense.org/>
+
+
+Zlib License Notices
+--------------------
+
+bytemuck:
+
+Copyright (c) 2019 Daniel "Lokathor" Gee.
+
+This software is provided 'as-is', without any express or implied warranty. In
+no event will the authors be held liable for any damages arising from the use
+of this software.
+
+Permission is granted to anyone to use this software for any purpose,
+including commercial applications, and to alter it and redistribute it freely,
+subject to the following restrictions:
+
+1. The origin of this software must not be misrepresented; you must not claim
+   that you wrote the original software. If you use this software in a
+   product, an acknowledgment in the product documentation would be
+   appreciated but is not required.
+
+2. Altered source versions must be plainly marked as such, and must not be
+   misrepresented as being the original software.
+
+3. This notice may not be removed or altered from any source distribution.
+
+miniz_oxide:
+
+Copyright 2013-2014 RAD Game Tools and Valve Software
+Copyright 2010-2014 Rich Geldreich and Tenacious Software LLC
+Copyright (c) 2020 Frommi
+Copyright (c) 2017-2024 oyvindln
+
+This software is provided 'as-is', without any express or implied warranty. In
+no event will the authors be held liable for any damages arising from the use
+of this software.
+
+Permission is granted to anyone to use this software for any purpose,
+including commercial applications, and to alter it and redistribute it freely,
+subject to the following restrictions:
+
+1. The origin of this software must not be misrepresented; you must not claim
+   that you wrote the original software. If you use this software in a
+   product, an acknowledgment in the product documentation would be
+   appreciated but is not required.
+
+2. Altered source versions must be plainly marked as such, and must not be
+   misrepresented as being the original software.
+
+3. This notice may not be removed or altered from any source distribution.
+
+zune-core and zune-jpeg:
+
+(C) zune-image developers
+
+This software is provided 'as-is', without any express or implied warranty. In
+no event will the authors be held liable for any damages arising from the use
+of this software.
+
+Permission is granted to anyone to use this software for any purpose,
+including commercial applications, and to alter it and redistribute it freely,
+subject to the following restrictions:
+
+1. The origin of this software must not be misrepresented; you must not claim
+   that you wrote the original software. If you use this software in a
+   product, an acknowledgment in the product documentation would be
+   appreciated but is not required.
+
+2. Altered source versions must be plainly marked as such, and must not be
+   misrepresented as being the original software.
+
+3. This notice may not be removed or altered from any source distribution.
+
+
+Unicode License v3
+------------------
+
+UNICODE LICENSE V3
+
+COPYRIGHT AND PERMISSION NOTICE
+
+Copyright (c) 1991-2023 Unicode, Inc.
+
+NOTICE TO USER: Carefully read the following legal agreement. BY DOWNLOADING,
+INSTALLING, COPYING OR OTHERWISE USING DATA FILES, AND/OR SOFTWARE, YOU
+UNEQUIVOCALLY ACCEPT, AND AGREE TO BE BOUND BY, ALL OF THE TERMS AND
+CONDITIONS OF THIS AGREEMENT. IF YOU DO NOT AGREE, DO NOT DOWNLOAD, INSTALL,
+COPY, DISTRIBUTE OR USE THE DATA FILES OR SOFTWARE.
+
+Permission is hereby granted, free of charge, to any person obtaining a copy of
+data files and any associated documentation (the "Data Files") or software and
+any associated documentation (the "Software") to deal in the Data Files or
+Software without restriction, including without limitation the rights to use,
+copy, modify, merge, publish, distribute, and/or sell copies of the Data Files
+or Software, and to permit persons to whom the Data Files or Software are
+furnished to do so, provided that either (a) this copyright and permission
+notice appear with all copies of the Data Files or Software, or (b) this
+copyright and permission notice appear in associated Documentation.
+
+THE DATA FILES AND SOFTWARE ARE PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND,
+EXPRESS OR IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF
+MERCHANTABILITY, FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT OF THIRD
+PARTY RIGHTS.
+
+IN NO EVENT SHALL THE COPYRIGHT HOLDER OR HOLDERS INCLUDED IN THIS NOTICE BE
+LIABLE FOR ANY CLAIM, OR ANY SPECIAL INDIRECT OR CONSEQUENTIAL DAMAGES, OR ANY
+DAMAGES WHATSOEVER RESULTING FROM LOSS OF USE, DATA OR PROFITS, WHETHER IN AN
+ACTION OF CONTRACT, NEGLIGENCE OR OTHER TORTIOUS ACTION, ARISING OUT OF OR IN
+CONNECTION WITH THE USE OR PERFORMANCE OF THE DATA FILES OR SOFTWARE.
+
+Except as contained in this notice, the name of a copyright holder shall not be
+used in advertising or otherwise to promote the sale, use or other dealings in
+these Data Files or Software without prior written authorization of the
+copyright holder.
